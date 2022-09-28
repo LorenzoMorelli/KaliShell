@@ -9,13 +9,15 @@ It provides 2 different `aliases`:
 1. openKaliHere --> it runs KaliShell on the current directory
 2. openKaliHereSudo --> Use this carefully only if you know what you are doing (You are giving privilaged escalation to you docker image).
 
+## Examples
+TODO
+
 ## Installation
 ### Dependency
 The installation script considers that you have the following dependency installed:
 1. [Docker](https://www.docker.com/)
 2. [Bash](https://www.gnu.org/software/bash/) or [Zsh](https://www.zsh.org/)
 3. [yay](https://github.com/Jguer/yay) (Only for Archlinux users)
-
 
 For installation you just need to clone the repository and run the file `setup.sh` with the settings you prefer.
 The script automatically support Arch, Debian and Fedora linux based distro. If you don't use one of this it works anyway but you have to edit the script manually for making it works.
