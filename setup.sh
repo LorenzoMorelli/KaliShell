@@ -37,7 +37,7 @@ fi
 # Building Dockerfile
 echo "Building image..."
 # TODO implement
-echo "docker build -t lori_more/kalishell ."
+docker build -t lori_more/kalishell .
 
 # Preparing aliases for shell config file
 if [[ "$*" == *"--nvidia-gpu"* || "$*" == *"-n"* ]]; then
@@ -52,13 +52,13 @@ fi
 if [[ "$*" == *"--bash"* || "$*" == *"-b"* ]]; then
 	echo "Adding aliases to .bashrc..."
 	echo "# Automatically genereted aliases by OpenKaliHere script" >> ~/.bashrc
-	$normalAlias >> ~/.bashrc
-	$sudoAlias >> ~/.bashrc
+	echo $normalAlias >> ~/.bashrc
+	echo $sudoAlias >> ~/.bashrc
 elif [[ "$*" == *"--zsh"* || "$*" == *"-z"* ]]; then
 	echo "Adding aliases to .zshrc..."
 	echo "# Automatically genereted aliases by OpenKaliHere script" >> ~/.zshrc
-	$normalAlias >> ~/.zshhrc
-	$sudoAlias >> ~/.zshrc
+	echo $normalAlias >> ~/.zshrc
+	echo $sudoAlias >> ~/.zshrc
 else # default case is manual (do nothing)
 	echo "Setting aliases skipped."
 fi
