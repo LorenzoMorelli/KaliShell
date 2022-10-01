@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 # Function to print error on stderr
 echoerr() { echo "$@" 1>&2; }
 
@@ -6,9 +6,15 @@ echoerr() { echo "$@" 1>&2; }
 if [[ "$*" == *"--nvidia-gpu"* || "$*" == *"-n"* ]]; then
     echo "Installing host package for nvidia gpu..."
 
-	if [[ -x "$(command -v ap)t" ]]; then 
+	if [[ -x "$(command -v apt)" ]]; then 
 		echo "Found Package Manager: apt"
-		apt install nvidia-container-toolkit
+		distribution=$(. /etc/os-release;echo $ID$VERSION_ID) \
+		      && curl -fsSL https://nvidia.github.io/libnvidia-container/gpgkey | sudo gpg --dearmor -o /usr/share/keyrings/nvidia-container-toolkit-keyring.gpg \
+		      && curl -s -L https://nvidia.github.io/libnvidia-container/$distribution/libnvidia-container.list | \
+	    	sed 's#deb https://#deb [signed-by=/usr/share/keyrings/nvidia-container-toolkit-keyring.gpg] https://#g' | \
+	    	sudo tee /etc/apt/sources.list.d/nvidia-container-toolkit.list
+		apt update
+		apt install -y nvidia-docker2
 
 	elif [[ -x "$(command -v dnf)" ]]; then
 		echo "Found Package Manager: dnf"
@@ -37,7 +43,7 @@ fi
 # Building Dockerfile
 echo "Building image..."
 # TODO implement
-docker build -t lori_more/kalishell .
+#docker build -t lori_more/kalishell .
 
 # Preparing aliases for shell config file
 if [[ "$*" == *"--nvidia-gpu"* || "$*" == *"-n"* ]]; then
