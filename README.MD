@@ -1,4 +1,5 @@
 # KaliShell
+## Note: This project is still working progress. PRs are vary appreciate.
 ## What is KaliShell?
 KaliShell is an easy way setup of [kali linux docker](https://hub.docker.com/r/kalilinux/kali-rolling) which offers:
 1. All the [most used tools](https://www.kali.org/tools/kali-meta/#kali-linux-headless) already installed.
@@ -44,3 +45,6 @@ If you DON'T have a NVIDIA GPU you can install without NVIDIA acceleration:
 ```
 sh ./setup.sh --bash
 ```
+## TODO List
+1. Implement and test Fedora setup script
+2. Upload example pictures/videos
