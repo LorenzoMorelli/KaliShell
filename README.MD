@@ -1,5 +1,5 @@
 # KaliShell
-## Note: This project is still working progress. PRs are vary appreciate.
+## Note: This project is still working progress.
 ## What is KaliShell?
 KaliShell is an easy way setup of [kali linux docker](https://hub.docker.com/r/kalilinux/kali-rolling) which offers:
 1. All the [most used tools](https://www.kali.org/tools/kali-meta/#kali-linux-headless) already installed.
